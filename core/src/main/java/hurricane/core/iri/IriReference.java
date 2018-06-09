@@ -119,6 +119,20 @@ public interface IriReference {
 			);
 	}
 
+	static IriReference ofXmlSchema(final String typeName) {
+		return new DefaultIriReference(
+				Optional.of("http"),
+				Optional.of(new DefaultAuthority(
+						Optional.empty(),
+						"www.w3.org",
+						Optional.empty()
+				)),
+				Optional.of(new DefaultPath(true, "2001", "XMLSchema")),
+				Optional.empty(),
+				Optional.of(typeName)
+		);
+	}
+
 	default Optional<String> getEscapedAuthority() {
 		return getAuthority().map(Authority::getEscapedString);
 	}
