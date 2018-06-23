@@ -5,6 +5,7 @@ import hurricane.core.rdf.Literal;
 import java.util.Objects;
 
 public final class RdfHtml implements Literal {
+  private static final IriReference iri = IriReference.ofRdfSyntax("HTML");
 
   private final String value;
 
@@ -19,7 +20,7 @@ public final class RdfHtml implements Literal {
 
   @Override
   public IriReference getDataTypeIri() {
-    return null;
+    return iri;
   }
 
   @Override

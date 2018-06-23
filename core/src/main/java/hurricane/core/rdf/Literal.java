@@ -2,31 +2,26 @@ package hurricane.core.rdf;
 
 import hurricane.core.iri.IriReference;
 import hurricane.core.rdf.literals.RdfLangString;
-import hurricane.core.rdf.literals.XsdAnyUri;
 import hurricane.core.rdf.literals.XsdBoolean;
 import hurricane.core.rdf.literals.XsdByte;
 import hurricane.core.rdf.literals.XsdDecimal;
 import hurricane.core.rdf.literals.XsdDouble;
 import hurricane.core.rdf.literals.XsdFloat;
-import hurricane.core.rdf.literals.XsdGMonth;
-import hurricane.core.rdf.literals.XsdGYear;
 import hurricane.core.rdf.literals.XsdInt;
 import hurricane.core.rdf.literals.XsdInteger;
-import hurricane.core.rdf.literals.XsdLanguage;
 import hurricane.core.rdf.literals.XsdLong;
 import hurricane.core.rdf.literals.XsdShort;
 import hurricane.core.rdf.literals.XsdString;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.time.Month;
-import java.time.Year;
 import java.util.Locale;
 import java.util.Optional;
 
 /**
  * Plain literal.
  */
-public interface Literal extends Node {
+public interface Literal<T> extends Node {
+  T getValue();
   String getLexicalForm();
   IriReference getDataTypeIri();
 

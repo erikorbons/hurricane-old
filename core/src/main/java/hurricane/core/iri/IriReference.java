@@ -133,6 +133,20 @@ public interface IriReference {
 		);
 	}
 
+	static IriReference ofRdfSyntax(final String typeName) {
+		return new DefaultIriReference(
+				Optional.of("http"),
+				Optional.of(new DefaultAuthority(
+						Optional.empty(),
+						"www.w3.org",
+						Optional.empty()
+				)),
+				Optional.of(new DefaultPath(true, "1999", "02", "22-rdf-syntax-ns")),
+				Optional.empty(),
+				Optional.of(typeName)
+		);
+	}
+
 	default Optional<String> getEscapedAuthority() {
 		return getAuthority().map(Authority::getEscapedString);
 	}
